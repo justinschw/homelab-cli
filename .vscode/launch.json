@@ -1,0 +1,67 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Mocha Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "--timeout",
+        "999999",
+        "--colors",
+        "test/**/*.test.js"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    {
+      "name": "Run packer build",
+      "type": "node",
+      "request": "launch",
+      "program": "bin/packer-build.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "envFile": "${workspaceFolder}/.env",
+      "args": [
+        "--manifest",
+        "../homelab-cli-testdata/data/images/k3s.json",
+        "--inventory-file",
+        "../homelab-cli-testdata/data/inventory.json",
+        "--ssh-info",
+        "../homelab-cli-testdata/data/images/ssh.json",
+        "--override"
+      ]
+    },
+    {
+      "name": "Run Mocha Tests (Terminal)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+      "args": [
+        "--colors",
+        "test"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Run and Debug Tests",
+      "configurations": [
+        "Run Mocha Tests (Terminal)",
+        "Debug Mocha Tests"
+      ]
+    }
+  ]
+}
