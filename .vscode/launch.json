@@ -30,7 +30,7 @@
       "envFile": "${workspaceFolder}/.env",
       "args": [
         "--manifest",
-        "../homelab-inventory/tf/k3s-node.json",
+        "../homelab-inventory/deployments/k3s-node.json",
         "--inventory-file",
         "../homelab-inventory/inventory.json",
         "--destroy"

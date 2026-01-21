@@ -92,10 +92,10 @@ function loadAuth(authPath) {
         if (args.inventoryFile) {
             const inventoryPath = path.resolve(process.cwd(), args.inventoryFile);
             if (!fs.existsSync(inventoryPath)) throw new Error(`inventory file not found: ${args.inventoryFile}`);
-            manifest.inventoryFile = inventoryPath;
+            manifest.tf.inventoryFile = inventoryPath;
         }
         const Terraform = require('../lib/terraform');
-        terraform = new Terraform(manifest);
+        terraform = new Terraform(manifest.tf);
         await terraform.init(args.destroy);
         if (args.destroy) {
             await terraform.plan(args.destroy, true);
