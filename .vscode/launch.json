@@ -12,11 +12,11 @@
       "envFile": "${workspaceFolder}/.env",
       "args": [
         "--manifest",
-        "../homelab-cli-testdata/data/images/k3s.json",
+        "/home/jusschwa/dev/homelab-inventory/packer/k3s.json",
         "--inventory-file",
-        "../homelab-cli-testdata/data/inventory.json",
+        "/home/jusschwa/dev/homelab-inventory/inventory.json",
         "--ssh-info",
-        "../homelab-cli-testdata/data/images/ssh.json"
+        "/home/jusschwa/dev/homelab-inventory/packer/ssh.json"
       ]
     },
     {
