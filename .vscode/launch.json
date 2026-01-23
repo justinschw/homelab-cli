@@ -12,15 +12,32 @@
       "envFile": "${workspaceFolder}/.env",
       "args": [
         "--manifest",
-        "/home/jusschwa/dev/homelab-inventory/packer/k3s.json",
+        "/home/jusschwa/dev/homelab-inventory/packer/debian.json",
         "--inventory-file",
         "/home/jusschwa/dev/homelab-inventory/inventory.json",
         "--ssh-info",
-        "/home/jusschwa/dev/homelab-inventory/packer/ssh.json"
+        "/home/jusschwa/dev/homelab-inventory/packer/ssh.json",
+        "--override"
       ]
     },
     {
       "name": "Run terraform apply",
+      "type": "node",
+      "request": "launch",
+      "program": "bin/tf-operations.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "envFile": "${workspaceFolder}/.env",
+      "args": [
+        "--manifest",
+        "../homelab-inventory/deployments/k3s-node.json",
+        "--inventory-file",
+        "../homelab-inventory/inventory.json"
+      ]
+    },
+    {
+      "name": "Run terraform destroy",
       "type": "node",
       "request": "launch",
       "program": "bin/tf-operations.js",

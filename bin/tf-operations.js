@@ -95,7 +95,7 @@ function loadAuth(authPath) {
             manifest.tf.inventoryFile = inventoryPath;
         }
         const Terraform = require('../lib/terraform');
-        terraform = new Terraform(manifest.tf);
+        terraform = new Terraform(manifest);
         await terraform.init(args.destroy);
         if (args.destroy) {
             await terraform.plan(args.destroy, true);
