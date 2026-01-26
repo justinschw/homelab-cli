@@ -52,6 +52,39 @@
         "../homelab-inventory/inventory.json",
         "--destroy"
       ]
-    }
+    },
+    {
+      "name": "Deploy cluster",
+      "type": "node",
+      "request": "launch",
+      "program": "bin/tf-operations.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "envFile": "${workspaceFolder}/.env",
+      "args": [
+        "--manifest",
+        "../homelab-inventory/deployments/labops-cluster.json",
+        "--inventory-file",
+        "../homelab-inventory/inventory.json"
+      ]
+    },
+    {
+      "name": "Destroy cluster",
+      "type": "node",
+      "request": "launch",
+      "program": "bin/tf-operations.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "envFile": "${workspaceFolder}/.env",
+      "args": [
+        "--manifest",
+        "../homelab-inventory/deployments/labops-cluster.json",
+        "--inventory-file",
+        "../homelab-inventory/inventory.json",
+        "--destroy"
+      ]
+    },
   ]
 }
