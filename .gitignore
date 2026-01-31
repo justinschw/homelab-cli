@@ -78,6 +78,9 @@ web_modules/
 .next
 out
 
+# Kube cache dir
+.kube
+
 # Nuxt.js build / generate output
 .nuxt
 dist
