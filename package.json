@@ -13,6 +13,8 @@
     "mocha": "^11.7.5"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.975.0",
+    "@aws-sdk/node-http-handler": "^3.370.0",
     "axios": "^1.13.2",
     "joi": "^18.0.2"
   }

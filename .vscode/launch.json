@@ -86,5 +86,37 @@
         "--destroy"
       ]
     },
+    {
+      "name": "Configure cluster",
+      "type": "node",
+      "request": "launch",
+      "program": "bin/ansible.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "envFile": "${workspaceFolder}/.env",
+      "args": [
+        "--manifest",
+        "../homelab-inventory/deployments/labops-cluster.json",
+        "--inventory-file",
+        "../homelab-inventory/inventory.json"
+      ]
+    },
+    {
+      "name": "Helm deploy",
+      "type": "node",
+      "request": "launch",
+      "program": "bin/helm.js",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "envFile": "${workspaceFolder}/.env",
+      "args": [
+        "--manifest",
+        "../homelab-inventory/deployments/labops-cluster.json",
+        "--inventory-file",
+        "../homelab-inventory/inventory.json"
+      ]
+    }
   ]
 }
